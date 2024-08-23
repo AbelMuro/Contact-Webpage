@@ -1,0 +1,49 @@
+@font-face {
+    font-family: 'karla';
+    src: url('/public/fonts/Karla-VariableFont_wght.ttf');
+}
+
+* {
+    transition: all 0.2s linear;
+    box-sizing: border-box;
+}
+
+body{
+    min-height: 100vh;
+    margin: 0px;
+    background-color: var(--color-green-200, #E0F1E8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;    
+    width: 736px;
+    padding: 40px;
+    gap: 24px;
+    background-color: var(--color-white, #FFF);
+    border-radius: 16px;
+}
+
+.names{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 16px;
+}
+
+.container > legend{
+    color: var(--color-grey-900, #2A4144);
+    font-family: var(--font);
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 100%; /* 32px */
+    letter-spacing: -1px;
+    margin-bottom: 8px;
+}
+
+:root{
+    --font: 'karla'
+}

@@ -1,0 +1,56 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+.container > label{
+    color: var(--color-grey-900, #2A4144);
+    font-family: var(--font);
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 24px */
+}
+
+.container > label > strong{
+    color: var(--color-green-600, #0C7D69);
+}
+
+.input{
+    border-radius: 8px;
+    border: 1px solid var(--color-grey-500, #86A2A5);
+    background-color: var(--color-white, #FFF);
+    padding: 12px 24px;
+    color: var(--color-grey-900, #2A4144);
+    font-family: var(--font);
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+}
+
+.input:focus{
+    border-color: #0C7D69;
+    outline: none;
+}
+
+.input:hover{
+    border-color: #0C7D69;
+}
+
+.input:user-invalid{
+    border: 1px solid var(--color-red, #D73C3C);
+}
+
+.errorMessage{
+    color: var(--color-red, #D73C3C);
+    font-family: var(--font);
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 24px */
+}
