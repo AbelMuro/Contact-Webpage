@@ -33,10 +33,11 @@ function EnterEmail() {
 
     return(
         <fieldset className={styles.container}>
-            <label>
+            <label htmlFor='email'>
                 Email Address <strong>*</strong>
             </label>
             <input 
+                id='email'
                 type='email' 
                 className={styles.input} 
                 style={error ? {borderColor: '#D73C3C'} : {}}

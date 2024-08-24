@@ -7,7 +7,7 @@
     border: none;
 }
 
-.container > strong{
+.container > label{
     color: var(--color-grey-900, #2A4144);
     font-family: var(--font);
     font-size: 1rem;
@@ -16,7 +16,7 @@
     line-height: 150%; /* 24px */
 }
 
-.container > strong > span{
+.container > label > span{
     color: var(--color-green-600, #0C7D69);
 }
 

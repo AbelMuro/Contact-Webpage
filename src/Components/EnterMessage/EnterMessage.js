@@ -25,10 +25,11 @@ function EnterMessage() {
 
     return(
         <fieldset className={styles.container}>
-            <strong>
+            <label htmlFor='message'>
                 Message <span>*</span>
-            </strong>
+            </label>
             <textarea 
+                id='message'
                 value={message} 
                 className={styles.textarea} 
                 style={error === 'empty' ? {borderColor: '#D73C3C'} : {}}

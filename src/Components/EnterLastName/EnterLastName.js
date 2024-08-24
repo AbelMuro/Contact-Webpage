@@ -25,10 +25,11 @@ function EnterLastName() {
 
     return(
         <fieldset className={styles.container}>
-            <label>
+            <label htmlFor='last name'>
                 Last Name <strong>*</strong>
             </label>
             <input 
+                id='last name'
                 type='text' 
                 className={styles.input} 
                 style={error === 'empty' ? {borderColor: '#D73C3C'} : {}}
