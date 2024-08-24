@@ -9,6 +9,8 @@ import icons from './icons';
 import {motion, AnimatePresence} from 'framer-motion';
 import './styles.css';
 
+//now i need to work on the responsiveness for tablet and mobile
+
 function App() {
     const [displayMessage, setDisplayMessage] = useState(false);
 
