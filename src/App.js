@@ -35,6 +35,19 @@ function App() {
     const handleSubmit = (e) => {
         e.preventDefault();
         setDisplayMessage(true);
+        const firstName = e.target.elements['first name'].value;
+        const lastName = e.target.elements['last name'].value;
+        const email = e.target.elements['email'].value;
+        const queryTypes = e.target.elements['query type'];
+        let selectedQueryType;
+        queryTypes.forEach(node => {
+           if(node.checked)
+                selectedQueryType = node.value;
+        })
+        const message = e.target.elements['message'].value;
+        const consent = e.target.elements['consent'].value;
+
+        console.log(firstName, lastName, email, selectedQueryType, message, consent);
     }
 
     useEffect(() => {

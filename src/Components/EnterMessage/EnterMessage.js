@@ -35,6 +35,7 @@ function EnterMessage() {
                 onChange={handleChange} 
                 onBlur={handleBlur} 
                 onInvalid={handleInvalid} 
+                name='message'
                 required
             ></textarea>
             {error === 'empty' && <div className={styles.errorMessage}>This field is required</div>}

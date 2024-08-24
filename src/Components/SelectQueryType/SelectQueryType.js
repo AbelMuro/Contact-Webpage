@@ -43,7 +43,9 @@ function SelectQueryType() {
                         value='general enquiry'
                         name='query type'
                         onInvalid={handleInvalid}
+                        onChange={() => {}}
                         onClick={handleClick} 
+                        checked={query === 'general enquiry'}
                         ref={generalRef}
                         required
                         />  
@@ -59,7 +61,9 @@ function SelectQueryType() {
                         value='support request' 
                         name='query type'
                         onInvalid={handleInvalid}
+                        onChange={() => {}}
                         onClick={handleClick} 
+                        checked={query === 'support request'}
                         ref={supportRef}
                         required
                         />
