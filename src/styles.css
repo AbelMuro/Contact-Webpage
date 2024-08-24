@@ -15,6 +15,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 50px 0px;
 }
 
 .messageBox{
@@ -26,7 +27,7 @@ body{
     display: grid;
     grid-template-columns: 19.5px 1fr;
     align-items: center;
-    column-gap: 8px;
+    column-gap: 10.5px;
     row-gap: 8px;
     position: absolute;
     top: 24px;
@@ -70,6 +71,7 @@ body{
     gap: 24px;
     background-color: var(--color-white, #FFF);
     border-radius: 16px;
+    transition: all 0.2s linear, width 0s;
 }
 
 .names{
@@ -109,4 +111,30 @@ body{
 
 :root{
     --font: 'karla'
+}
+
+@media(max-width: 800px){
+    .container{
+        width: 90vw;
+    }
+}
+
+@media(max-width: 600px){
+    body{
+        padding: 32px 0px;
+    }
+
+    .container{
+        padding: 24px;
+    }
+
+    .names{
+        grid-template-columns: 1fr;
+        row-gap: 24px;
+        column-gap: 0px;
+    }
+    
+    .messageBox{
+        width: 327px;
+    }
 }

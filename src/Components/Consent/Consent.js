@@ -15,14 +15,17 @@ function Consent () {
         setError('not checked')
     }
 
+
     return(
         <fieldset className={styles.container}>
             <label className={styles.checkbox} htmlFor='checkbox'>
                 <input 
                     id='checkbox' 
                     type='checkbox' 
+                    name='consent'
                     value={checked} 
                     checked={checked} 
+                    onChange={() => {}}
                     onClick={handleClick}
                     onInvalid={handleInvalid}
                     required

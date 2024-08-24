@@ -39,6 +39,7 @@ function EnterEmail() {
             <input 
                 type='email' 
                 className={styles.input} 
+                style={error ? {borderColor: '#D73C3C'} : {}}
                 value={email} 
                 onChange={handleChange} 
                 onBlur={handleBlur}

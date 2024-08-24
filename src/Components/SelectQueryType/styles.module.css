@@ -73,5 +73,16 @@
 }
 
 .radio > input{
-    display: none;
+    width: 0px;
+    height: 0px;
+}
+
+@media(max-width: 600px){
+    .container{
+        grid-template-columns: 1fr;
+    }
+
+    .container > strong{
+        grid-column: initial;
+    }
 }

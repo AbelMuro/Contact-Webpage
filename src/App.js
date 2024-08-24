@@ -38,6 +38,8 @@ function App() {
     }
 
     useEffect(() => {
+        if(!displayMessage) return;
+
         setTimeout(() => {
             setDisplayMessage(false);
         }, 4000)

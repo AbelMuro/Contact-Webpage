@@ -31,6 +31,7 @@ function EnterFirstName() {
             <input 
                 type='text' 
                 className={styles.input} 
+                style={error === 'empty' ? {borderColor: '#D73C3C'} : {}}
                 value={name} 
                 onChange={handleChange} 
                 onBlur={handleBlur}

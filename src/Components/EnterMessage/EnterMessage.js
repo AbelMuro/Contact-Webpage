@@ -29,8 +29,9 @@ function EnterMessage() {
                 Message <span>*</span>
             </strong>
             <textarea 
-                className={styles.textarea} 
                 value={message} 
+                className={styles.textarea} 
+                style={error === 'empty' ? {borderColor: '#D73C3C'} : {}}
                 onChange={handleChange} 
                 onBlur={handleBlur} 
                 onInvalid={handleInvalid} 

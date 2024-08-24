@@ -1,10 +1,12 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import icons from './icons';
 import * as styles from './styles.module.css';
 
 function SelectQueryType() {
     const [query, setQuery] = useState('');
     const [error, setError] = useState('');
+    const generalRef = useRef();
+    const supportRef = useRef();
 
     const selectedStyles = {
         borderColor: '#0C7D69',
@@ -13,14 +15,20 @@ function SelectQueryType() {
 
     const handleClick = (e) => {
         setError('');
-        e.target.setCustomValidity('');
+        generalRef.current.setCustomValidity('');
+        supportRef.current.setCustomValidity('');
         setQuery(e.target.value);
     }
 
-    const handleInvalid = (e) => {
-        e.target.setCustomValidity(' ');
+    const handleInvalid = () => {
+        generalRef.current.setCustomValidity(' ');
+        supportRef.current.setCustomValidity(' ');
         setError('empty')
     }
+
+    useEffect(() => {
+        console.log(query);
+    }, [query])
 
     return(
         <fieldset className={styles.container}>
@@ -36,6 +44,7 @@ function SelectQueryType() {
                         name='query type'
                         onInvalid={handleInvalid}
                         onClick={handleClick} 
+                        ref={generalRef}
                         required
                         />  
                     {query === 'general enquiry' && <img className={styles.radio_checked} src={icons['dot']}/>}
@@ -51,7 +60,9 @@ function SelectQueryType() {
                         name='query type'
                         onInvalid={handleInvalid}
                         onClick={handleClick} 
-                        required/>
+                        ref={supportRef}
+                        required
+                        />
                     {query === 'support request' && <img className={styles.radio_checked} src={icons['dot']}/>}
                 </div>
                 Support Request
