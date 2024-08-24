@@ -94,7 +94,7 @@ body{
 .submit{
     height: 59px;
     border-radius: 8px;
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.50) 0%, rgba(0, 0, 0, 0.50) 100%), var(--color-green-600, #0C7D69);
+    background: var(--color-green-600, #0C7D69);
     color: var(--color-white, #FFF);
     font-family: var(--font);
     font-size: 1.125rem;
@@ -106,7 +106,7 @@ body{
 }
 
 .submit:hover{
-    background: var(--color-green-600, #0C7D69);
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.50) 0%, rgba(0, 0, 0, 0.50) 100%), var(--color-green-600, #0C7D69);
 }
 
 :root{
