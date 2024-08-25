@@ -4,13 +4,13 @@ const s3 = new aws.S3({
     region: process.env.region,
     accessKeyId: process.env.accessKeyId,
     secretAccessKey: process.env.secretAccessKey,
-    signatureVersion: 'v4'
+    signatureVersion: process.env.signatureVersion
 })
 
 export async function generateUploadURL(objectName) {                      
 
     const params = {
-        Bucket: 'contact-form-data',
+        Bucket: process.env.BucketName,
         Key: objectName,
         Expires: 60
     };
