@@ -7,9 +7,10 @@ import EnterMessage from './Components/EnterMessage';
 import Consent from './Components/Consent';
 import icons from './icons';
 import {motion, AnimatePresence} from 'framer-motion';
+import {v4 as uuid} from 'uuid';
+import S3 from './AWS';
 import './styles.css';
 
-//now i need to work on the responsiveness for tablet and mobile
 
 function App() {
     const [displayMessage, setDisplayMessage] = useState(false);
@@ -32,7 +33,7 @@ function App() {
         }
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         setDisplayMessage(true);
         const firstName = e.target.elements['first name'].value;
@@ -47,7 +48,20 @@ function App() {
         const message = e.target.elements['message'].value;
         const consent = e.target.elements['consent'].value;
 
-        console.log(firstName, lastName, email, selectedQueryType, message, consent);
+        const url = await S3.generateUploadURL(`${firstName + ' ' + lastName}/contactInfo`);
+        await fetch(url, {
+            method: 'PUT',
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                firstName,
+                lastName,
+                email,
+                selectedQueryType,
+                message,
+            })
+        });
     }
 
     useEffect(() => {
@@ -58,8 +72,9 @@ function App() {
         }, 4000)
     }, [displayMessage])
 
+
     return(
-        <form className={'container'} onSubmit={handleSubmit}>
+        <form className={'container'} onSubmit={handleSubmit}>    
             <legend>
                 Contact Us
             </legend>

@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useRef} from 'react';
+import React, {useState, useRef} from 'react';
 import icons from './icons';
 import * as styles from './styles.module.css';
 
@@ -25,10 +25,6 @@ function SelectQueryType() {
         supportRef.current.setCustomValidity(' ');
         setError('empty')
     }
-
-    useEffect(() => {
-        console.log(query);
-    }, [query])
 
     return(
         <fieldset className={styles.container}>
