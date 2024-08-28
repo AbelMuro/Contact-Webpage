@@ -7,8 +7,6 @@ import EnterMessage from './Components/EnterMessage';
 import Consent from './Components/Consent';
 import icons from './icons';
 import {motion, AnimatePresence} from 'framer-motion';
-import {v4 as uuid} from 'uuid';
-import S3 from './AWS';
 import './styles.css';
 
 
@@ -46,22 +44,24 @@ function App() {
                 selectedQueryType = node.value;
         })
         const message = e.target.elements['message'].value;
-        const consent = e.target.elements['consent'].value;
 
-        const url = await S3.generateUploadURL(`${firstName + ' ' + lastName}/contactInfo`);
-        await fetch(url, {
-            method: 'PUT',
+        const body = {
+            firstName,
+            lastName,
+            email,
+            selectedQueryType,
+            message
+        }
+
+        const response = await fetch('http://ec2-13-57-33-154.us-west-1.compute.amazonaws.com/', {
+            method: 'POST',
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify({
-                firstName,
-                lastName,
-                email,
-                selectedQueryType,
-                message,
-            })
+            body: JSON.stringify(body)
         });
+        const data = await response.text();
+        console.log(data);
     }
 
     useEffect(() => {
