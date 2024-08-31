@@ -53,7 +53,7 @@ function App() {
             message
         }
         try{
-            const response = await fetch('http://ec2-13-57-33-154.us-west-1.compute.amazonaws.com/', {
+            const response = await fetch('http://ec2-52-53-169-169.us-west-1.compute.amazonaws.com/', {
                 method: 'POST',
                 headers: {
                     "Content-Type": "application/json"
