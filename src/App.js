@@ -33,15 +33,14 @@ function App() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setDisplayMessage(true);
         const firstName = e.target.elements['first name'].value;
         const lastName = e.target.elements['last name'].value;
         const email = e.target.elements['email'].value;
         const queryTypes = e.target.elements['query type'];
-        let selectedQueryType;
+        let queryType;
         queryTypes.forEach(node => {
            if(node.checked)
-                selectedQueryType = node.value;
+                queryType = node.value;
         })
         const message = e.target.elements['message'].value;
 
@@ -49,19 +48,23 @@ function App() {
             firstName,
             lastName,
             email,
-            selectedQueryType,
+            queryType,
             message
         }
         try{
-            const response = await fetch('http://ec2-52-53-169-169.us-west-1.compute.amazonaws.com/', {
+            const response = await fetch('http://localhost:4000/upload_data', {
                 method: 'POST',
                 headers: {
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify(body)
             });
-            const data = await response.text();
-            console.log(data);            
+
+            if(response.status === 200){
+                const message = await response.text();
+                console.log(message);                 
+                setDisplayMessage(true);   
+            }
         }
         catch(error){
             console.log(error);
@@ -74,6 +77,9 @@ function App() {
         setTimeout(() => {
             setDisplayMessage(false);
         }, 4000)
+        setTimeout(() => {
+            window.location.reload();
+        }, 4500)
     }, [displayMessage])
 
 
