@@ -5,7 +5,7 @@ import EnterEmail from './Components/EnterEmail';
 import SelectQueryType from './Components/SelectQueryType';
 import EnterMessage from './Components/EnterMessage';
 import Consent from './Components/Consent';
-import {ClipLoaders} from 'react-spinners';
+import {ClipLoader} from 'react-spinners';
 import icons from './icons';
 import {motion, AnimatePresence} from 'framer-motion';
 import './styles.css';
@@ -103,7 +103,7 @@ function App() {
             <EnterMessage/>
             <Consent/>
             <button className={'submit'}>
-                {loading ? <ClipLoaders size='25px' color='white'/> : 'Submit'}
+                {loading ? <ClipLoader size='25px' color='white'/> : 'Submit'}
             </button>
             <AnimatePresence>
                 {displayMessage && 
