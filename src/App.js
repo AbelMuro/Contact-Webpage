@@ -103,7 +103,7 @@ function App() {
             <EnterMessage/>
             <Consent/>
             <button className={'submit'}>
-                {loading ? <ClipLoader size='25px' color='white'/> : 'Submit'}
+                {loading ? <ClipLoader size='35px' color='white'/> : 'Submit'}
             </button>
             <AnimatePresence>
                 {displayMessage && 
