@@ -5,12 +5,14 @@ import EnterEmail from './Components/EnterEmail';
 import SelectQueryType from './Components/SelectQueryType';
 import EnterMessage from './Components/EnterMessage';
 import Consent from './Components/Consent';
+import {ClipLoaders} from 'react-spinners';
 import icons from './icons';
 import {motion, AnimatePresence} from 'framer-motion';
 import './styles.css';
 
 
 function App() {
+    const [loading, setLoading] = useState(false);
     const [displayMessage, setDisplayMessage] = useState(false);
 
     const dialogVariant = {
@@ -33,6 +35,7 @@ function App() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setLoading(true);
         const firstName = e.target.elements['first name'].value;
         const lastName = e.target.elements['last name'].value;
         const email = e.target.elements['email'].value;
@@ -69,6 +72,9 @@ function App() {
         catch(error){
             console.log(error);
         }
+        finally{
+            setLoading && setLoading(false);
+        }
     }
 
     useEffect(() => {
@@ -97,7 +103,7 @@ function App() {
             <EnterMessage/>
             <Consent/>
             <button className={'submit'}>
-                Submit
+                {loading ? <ClipLoaders size='25px' color='white'/> : 'Submit'}
             </button>
             <AnimatePresence>
                 {displayMessage && 
