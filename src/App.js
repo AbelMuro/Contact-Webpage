@@ -55,7 +55,7 @@ function App() {
             message
         }
         try{
-            const response = await fetch('https://contact-form-server-1ffe5b24a2df.herokuapp.com/upload_data', {
+            const response = await fetch('https://contact-form-server.netlify.app/upload_data', {
                 method: 'POST',
                 headers: {
                     "Content-Type": "application/json"
